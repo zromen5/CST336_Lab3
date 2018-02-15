@@ -5,7 +5,7 @@
     
     <body>
         <?php
-            //echo "<img src =' ./img/cards/clubs/2.png' />";
+            //echo "<img src =' ./img/cards/clubs/2.png' />" ;
             
             // initializa a list of players
             $player1 = array(
