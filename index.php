@@ -44,7 +44,33 @@
             function printGameState($allPlayers) {
                 foreach ($allPlayers as $player) {
                     echo "<img src ='" . $player['imgURL'] . "' />";
-                    echo $player['name'] . "'/>";
+                    echo $player['name'] . "<br/>";
+                }
+            }
+            function generateDeck()
+            {
+                for ($i = 0; $i < 51; $i++) {
+                     $card= array('imgURL' => "");
+                }
+            }
+            function getHand()
+            {
+                for($i = 0; $i < 5; $i++)
+                {
+                    
+                }
+            }
+            function getImgURLForCardIndex($index)
+            {
+                $suitIndex= floor($index/13);
+                switch ($suitIndex) {
+                    case 0:
+                        // code...
+                        break;
+                    
+                    default:
+                        // code...
+                        break;
                 }
             }
             
