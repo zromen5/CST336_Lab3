@@ -5,17 +5,17 @@
     
     <body>
         <?php
-            //echo "<img src =' ./img/cards/clubs/2.png' />" ;
+            //echo "<img src =' ./img/cards/clubs/2.png' />";
             
             // initializa a list of players
             $player1 = array(
                 'name' => 'Irais',
-                'imgURL' => './img/me.png',
+                'imgURL' => './img/user_pics/me.png',
                 'hand' => array(),
                 'points' => 0
                 );
             $player2 = array(
-                'name' => 'Raquel',
+                'name' => 'Maggie',
                 'imgURL' => './img/user_pics/scotty_pic.jpg',
                 'hand' => array(),
                 'points' => 0
