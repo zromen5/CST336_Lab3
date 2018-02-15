@@ -9,8 +9,8 @@
             
             // initializa a list of players
             $player1 = array(
-                'name' => 'Utsab',
-                'imgURL' => './img/user_pics/blue_jay.jpg',
+                'name' => 'Irais',
+                'imgURL' => './img/me.png',
                 'hand' => array(),
                 'points' => 0
                 );
@@ -32,12 +32,13 @@
                 'hand' => array(),
                 'points' => 0
                 );
-            
+
             
             $allPlayers = array (
                 $player1,
                 $player2,
-                $player3
+                $player3,
+                $player4
                 );
             
             function printGameState($allPlayers) {
