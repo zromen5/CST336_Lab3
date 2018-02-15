@@ -26,6 +26,13 @@
                 'hand' => array(),
                 'points' => 0
                 );
+            $player4 = array(
+                'name' => 'Martin',
+                'imgURL' => './img/user_pics/Martin.jpg',
+                'hand' => array(),
+                'points' => 0
+                );
+            
             
             $allPlayers = array (
                 $player1,
