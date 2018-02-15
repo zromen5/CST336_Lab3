@@ -5,7 +5,7 @@
     
     <body>
         <?php
-            //echo "<img src =' ./img/cards/clubs/2.png' />";
+            //echo "<img src =' ./img/cards/clubs/2.png' />" ;
             
             // initializa a list of players
             $player1 = array(
@@ -15,7 +15,7 @@
                 'points' => 0
                 );
             $player2 = array(
-                'name' => 'Maggie',
+                'name' => 'Raquel',
                 'imgURL' => './img/user_pics/scotty_pic.jpg',
                 'hand' => array(),
                 'points' => 0
