@@ -50,7 +50,7 @@
             function printGameState($allPlayers) {
                 foreach ($allPlayers as $player) {
                     echo "<img src ='" . $player['imgURL'] . "' width = 150px />";
-                    echo $player['name'] . "<br/>";
+                    echo "<h2>",$player['name'] . "</h2><br/>";
                     for ($j = 0; $j < sizeof($player['hand']); $j++) {
                         displayCard($player['hand'][$j][0], $player['hand'][$j][1]);
                     }
@@ -93,13 +93,13 @@
             
             function displayCard ($symbol, $value) {
                     switch ($symbol) {
-                        case 0: echo "<img src='img/cards/clubs/$value.png' id = clubs".$value." alt='clubs".$value."' title= 'card' width = 85>";
+                        case 0: echo "<img class = 'img1' src='img/cards/clubs/$value.png' id = clubs".$value." alt='clubs".$value."' title= 'card' width = 85>";
                                 break;
-                        case 1: echo "<img src='img/cards/diamonds/$value.png' id = diamonds".$value ." alt='diamonds".$value."' title= 'card' width = 85>";
+                        case 1: echo "<img class = 'img1' src='img/cards/diamonds/$value.png' id = diamonds".$value ." alt='diamonds".$value."' title= 'card' width = 85>";
                                 break;
-                        case 2: echo "<img src='img/cards/hearts/$value.png' id = hearts".$value ." alt='hearts".$value."' title= 'card' width = 85>";
+                        case 2: echo "<img class = 'img1' src='img/cards/hearts/$value.png' id = hearts".$value ." alt='hearts".$value."' title= 'card' width = 85> ";
                                 break;
-                        case 3: echo "<img src='img/cards/spades/$value.png' id = spades".$value ." alt='spades".$value."' title= 'card' width = 85>";
+                        case 3: echo "<img class = 'img1' src='img/cards/spades/$value.png' id = spades".$value ." alt='spades".$value."' title= 'card' width = 85>";
                                 break;
                     }
                 }
@@ -125,7 +125,7 @@
             }
             
             function displayWinner($allPlayers){
-                echo "<h3>";
+                //echo "<h3>";
                 $winner = array('points' => 0);
                 $totalPoints = 0;
                 /*$tie = arra;
@@ -138,7 +138,7 @@
                 }
                 $totalPoints -= $winner['points'];
                 //if(!$tie)
-                    echo $winner['name']." wins ".$totalPoints."!!</h3>";
+                    echo "<h3><i>",$winner['name']." wins ".$totalPoints."!!</i></h3>";
                 //else
             }
             
