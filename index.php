@@ -50,9 +50,9 @@
                     echo "<h2>",$player['name'] . "</h2>";
                     
                     for ($j = 0; $j < sizeof($player['hand']); $j++) {
-                        //echo "<div class = 'output'>";
+                        echo "<div class = 'output'>";
                         displayCard($player['hand'][$j][0], $player['hand'][$j][1]);
-                        //echo "</div";
+                        echo "</div";
                     }
                     //echo "<br/>";
                 }
@@ -119,19 +119,14 @@
             
             function displayHand($player) {
                 for ($j = 0; $j < sizeof($player['hand']); $j++) {
-                    //echo "<div class = 'output'>";
+                    echo "<div class = 'output'>";
                     displayCard($player['hand'][$j][0], $player['hand'][$j][1]);
-                   // echo "</div";
+                    echo "</div";
                 }
             echo "<br/>";
             }
             
             function displayWinner($allPlayers){
-                //echo "<h3>";
-                // echo "<audio autoplay>
-                //     <source src=sound/Win.mp3 type=audio/mpeg>
-                //     Your browser does not support the audio element.
-                //     </audio>";
                 $winner = array('points' => 0);
                 $totalPoints = 0;
                 /*$tie = arra;
@@ -161,10 +156,12 @@
                 displayWinner($allPlayers);
                 
             }
+            
             echo "<audio autoplay>
                     <source src=sound/Yay.mp3 type=audio/mpeg>
                     // Your browser does not support the audio element.
                     </audio>";
+                    
             printGameState($allPlayers);
             
             play(35, $allPlayers);
