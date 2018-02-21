@@ -1,9 +1,15 @@
 <html>
     <head>
+        <meta charset = "utf-8"/>
+        <title>Team Batman: Silver Jack</title>
         
+        <link href ="css/styles.css" rel =" stylesheet" type = "text/css"/>
     </head>
     
     <body>
+        <header>
+            <h1 style="font-size:60px;">Silver Jack</h1>
+        </header>
         <?php
             //echo "<img src =' ./img/cards/clubs/2.png' />";
             
