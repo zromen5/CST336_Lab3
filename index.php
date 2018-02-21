@@ -43,7 +43,7 @@
             
             function printGameState($allPlayers) {
                 foreach ($allPlayers as $player) {
-                    echo "<img src ='" . $player['imgURL'] . "' />";
+                    echo "<img src ='" . $player['imgURL'] . "' width = 150px />";
                     echo $player['name'] . "<br/>";
                     for ($j = 0; $j < sizeof($player['hand']); $j++) {
                         displayCard($player['hand'][$j][0], $player['hand'][$j][1]);
@@ -120,6 +120,7 @@
             }
             
             function play($limit) {
+                $cardArray = generateDeck();
                 for($i = 1; $i < 5; $i++) {
                     $player = &${"player".$i};
                     
