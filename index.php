@@ -1,9 +1,15 @@
 <html>
     <head>
+        <meta charset = "utf-8"/>
+        <title>Team Batman: Silver Jack</title>
         
+        <link href ="css/styles.css" rel =" stylesheet" type = "text/css"/>
     </head>
     
     <body>
+        <header>
+            <h1 style="font-size:60px;">Silver Jack</h1>
+        </header>
         <?php
             //echo "<img src =' ./img/cards/clubs/2.png' />";
             
@@ -15,14 +21,14 @@
                 'points' => 0
                 );
             $player2 = array(
-                'name' => 'Maggie',
-                'imgURL' => './img/user_pics/scotty_pic.jpg',
+                'name' => 'Raquel',
+                'imgURL' => './img/user_pics/Raquels_pic.jpg',
                 'hand' => array(),
                 'points' => 0
                 );
             $player3 = array(
-                'name' => 'Joe',
-                'imgURL' => './img/user_pics/cockatiel_pic.jpg',
+                'name' => 'Jeffrey',
+                'imgURL' => './img/user_pics/joffrey.jpg',
                 'hand' => array(),
                 'points' => 0
                 );
@@ -43,16 +49,27 @@
             
             function printGameState($allPlayers) {
                 foreach ($allPlayers as $player) {
-                    echo "<img src ='" . $player['imgURL'] . "' />";
+                    echo "<img src ='" . $player['imgURL'] . "' width = 150px />";
                     echo $player['name'] . "<br/>";
+                    for ($j = 0; $j < sizeof($player['hand']); $j++) {
+                        displayCard($player['hand'][$j][0], $player['hand'][$j][1]);
+                    }
+                    echo "<br/>";
                 }
             }
+            
             function generateDeck()
             {
-                for ($i = 0; $i < 51; $i++) {
-                     $card= array('imgURL' => "");
+                $cardArray = array();
+                for($i=0; $i < 4; $i++){
+                    array_push($cardArray, array());
+                    for($j=0; $j< 13; $j++){
+                        array_push($cardArray[$i], 1);
+                    }
                 }
+                return $cardArray;
             }
+            
             function getHand()
             {
                 for($i = 0; $i < 5; $i++)
@@ -74,8 +91,72 @@
                 }
             }
             
+            function displayCard ($symbol, $value) {
+                    switch ($symbol) {
+                        case 0: echo "<img src='img/cards/clubs/$value.png' id = clubs".$value." alt='clubs".$value."' title= 'card' width = 85>";
+                                break;
+                        case 1: echo "<img src='img/cards/diamonds/$value.png' id = diamonds".$value ." alt='diamonds".$value."' title= 'card' width = 85>";
+                                break;
+                        case 2: echo "<img src='img/cards/hearts/$value.png' id = hearts".$value ." alt='hearts".$value."' title= 'card' width = 85>";
+                                break;
+                        case 3: echo "<img src='img/cards/spades/$value.png' id = spades".$value ." alt='spades".$value."' title= 'card' width = 85>";
+                                break;
+                    }
+                }
+                
+            function pickCard (&$player, &$cardArray) {
+                $symbol = rand (0,3);
+                $index = array_rand ($cardArray[$symbol], 1);
+                $value = $cardArray[$symbol][$index];
+                while (!$cardArray[$symbol][$index]) {
+                    $symbol = rand (0,3);
+                    $index = array_rand ($cardArray[$symbol], 1);
+                }
+                $cardArray[$symbol][$index] = 0;
+                array_push($player['hand'],array($symbol,$index+1));
+                $player['points'] += $index+1;
+            }
+                
+            function displayHand($player) {
+                for ($j = 0; $j < sizeof($player['hand']); $j++) {
+                    displayCard($player['hand'][$j][0], $player['hand'][$j][1]);
+                }
+            echo "<br/>";
+            }
+            
+            function displayWinner($allPlayers){
+                echo "<h3>";
+                $winner = array('points' => 0);
+                $totalPoints = 0;
+                /*$tie = arra;
+                */foreach($allPlayers as $player) {
+                    $tie = $player['points'] == $winner['points'];
+                    if($player['points'] > $winner['points'] && $player['points'] < 43){
+                        $winner = $player;
+                    }
+                    $totalPoints += $player['points'];
+                }
+                $totalPoints -= $winner['points'];
+                //if(!$tie)
+                    echo $winner['name']." wins ".$totalPoints."!!</h3>";
+                //else
+            }
+            
+            function play($limit, $allPlayers) {
+                $cardArray = generateDeck();
+                foreach($allPlayers as &$player) {
+                    while($player['points'] < $limit) {
+                        pickCard($player,$cardArray);
+                    }
+                    echo "<br/>";
+                    displayHand($player);
+                }
+                displayWinner($allPlayers);
+                
+            }
             printGameState($allPlayers);
-
+            
+            play(35, $allPlayers);
         ?>
     </body>
 </html>
