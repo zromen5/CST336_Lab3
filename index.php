@@ -108,7 +108,6 @@
                 }
                 $cardArray[$symbol][$index] = 0;
                 array_push($player['hand'],array($symbol,$index+1));
-                $player['points'] += $index+1;
             }
                 
             function displayHand($player) {
