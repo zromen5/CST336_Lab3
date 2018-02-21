@@ -9,8 +9,8 @@
             
             // initializa a list of players
             $player1 = array(
-                'name' => 'Utsab',
-                'imgURL' => './img/user_pics/blue_jay.jpg',
+                'name' => 'Irais',
+                'imgURL' => './img/user_pics/me.png',
                 'hand' => array(),
                 'points' => 0
                 );
@@ -26,6 +26,13 @@
                 'hand' => array(),
                 'points' => 0
                 );
+            $player4 = array(
+                'name' => 'Martin',
+                'imgURL' => './img/user_pics/Martin.jpg',
+                'hand' => array(),
+                'points' => 0
+                );
+
             
             $allPlayers = array (
                 $player1,
@@ -37,47 +44,37 @@
             function printGameState($allPlayers) {
                 foreach ($allPlayers as $player) {
                     echo "<img src ='" . $player['imgURL'] . "' />";
-                    echo $player['name'] . "br/>";
+                    echo $player['name'] . "<br/>";
+                }
+            }
+            function generateDeck()
+            {
+                for ($i = 0; $i < 51; $i++) {
+                     $card= array('imgURL' => "");
+                }
+            }
+            function getHand()
+            {
+                for($i = 0; $i < 5; $i++)
+                {
+                    
+                }
+            }
+            function getImgURLForCardIndex($index)
+            {
+                $suitIndex= floor($index/13);
+                switch ($suitIndex) {
+                    case 0:
+                        // code...
+                        break;
+                    
+                    default:
+                        // code...
+                        break;
                 }
             }
             
             printGameState($allPlayers);
-            
-            getImgURLForCardIndex(0);
-            
-            //pseudocode
-            // create and array of 52 cards
-                // each card on associative array => suit, rank, imgURL, points
-            // shuffle the array
-            // pop off one card at a time to generate the hand
-
-            function getImgURLForCardIndex($index) {
-                //get a num from 0 to 51
-                // return an img url
-                
-                $suitIndex = floor ($index / 13);
-                
-                echo "suitIndex: $suitIndex";
-            }
-
-            function generateDeck() {
-                $suits = array ("clubs", "spades", "hearts", "diamonds");
-                
-                $deck = array();
-                
-                for ($i = 0; $i <= 3; $i++) {
-                    for($j = 1; $j <= 13; $j++) {
-                        
-                        
-                    }
-                    
-                }
-                // for ($i = 0; $i < 51; $i++) {
-                //     $card = array(
-                //         'imgURL' => ""
-                //         );
-                // }
-            }
 
         ?>
     </body>
