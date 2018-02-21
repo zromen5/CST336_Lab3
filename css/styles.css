@@ -24,3 +24,29 @@ h3
     text-align: center;
     color: #FFD700;
 }
+
+/*.clubs, .diamonds, .hearts, .spades {*/
+/*    padding-right: 50px;*/
+/*}*/
+
+.output {
+    /*padding-right: 50px;*/
+    float: right;
+    padding-right: 30px;
+    padding-bottom: 1000px
+/*padding: 50px;*/
+    /*float: left;*/
+    /*padding: 100px;*/
+}
+
+.text {
+    position:absolute;
+    width:300px;
+    height:300px;
+    top: 1050px;
+    right:25%;
+    left:50%;
+    margin-left:-150px;
+}
+
+
