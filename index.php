@@ -87,13 +87,13 @@
             
             function displayCard ($symbol, $value) {
                     switch ($symbol) {
-                        case 0: echo "<img src='/Silverjack/cards/cards/clubs/$value.png' id = clubs".$value." alt='clubs".$value."' title= 'card' width = 85>";
+                        case 0: echo "<img src='img/cards/clubs/$value.png' id = clubs".$value." alt='clubs".$value."' title= 'card' width = 85>";
                                 break;
-                        case 1: echo "<img src='/Silverjack/cards/cards/diamonds/$value.png' id = diamonds".$value ." alt='diamonds".$value."' title= 'card' width = 85>";
+                        case 1: echo "<img src='img/cards/diamonds/$value.png' id = diamonds".$value ." alt='diamonds".$value."' title= 'card' width = 85>";
                                 break;
-                        case 2: echo "<img src='/Silverjack/cards/cards/hearts/$value.png' id = hearts".$value ." alt='hearts".$value."' title= 'card' width = 85>";
+                        case 2: echo "<img src='img/cards/hearts/$value.png' id = hearts".$value ." alt='hearts".$value."' title= 'card' width = 85>";
                                 break;
-                        case 3: echo "<img src='/Silverjack/cards/cards/spades/$value.png' id = spades".$value ." alt='spades".$value."' title= 'card' width = 85>";
+                        case 3: echo "<img src='img/cards/spades/$value.png' id = spades".$value ." alt='spades".$value."' title= 'card' width = 85>";
                                 break;
                     }
                 }
@@ -108,31 +108,46 @@
                 }
                 $cardArray[$symbol][$index] = 0;
                 array_push($player['hand'],array($symbol,$index+1));
+                $player['points'] += $index+1;
             }
                 
-            function displayHand($players) {
-                foreach ($players as $player) {
-                    for ($j = 0; $j < sizeof($player['hand']); $j++) {
-                        displayCard($player['hand'][$j][0], $player['hand'][$j][1]);
-                    }
-                    echo "<br/>";
+            function displayHand($player) {
+                for ($j = 0; $j < sizeof($player['hand']); $j++) {
+                    displayCard($player['hand'][$j][0], $player['hand'][$j][1]);
                 }
+            echo "<br/>";
             }
             
-            function play($limit) {
+            function displayWinner($allPlayers){
+                echo "<h3>";
+                $winner = array('points' => 0);
+                $totalPoints = 0;
+                foreach($allPlayers as $player) {
+                    if($player['points'] > $winner['points'] && $player['points'] < 43){
+                        $winner = $player;
+                    }
+                    $totalPoints += $player['points'];
+                }
+                $totalPoints -= $winner['points'];
+                echo $winner['name']." wins ".$totalPoints."!!</h3>";
+            }
+            
+            function play($limit, $allPlayers) {
                 $cardArray = generateDeck();
-                for($i = 1; $i < 5; $i++) {
-                    $player = &${"player".$i};
-                    
+                foreach($allPlayers as $player) {
                     while($player['points'] < $limit) {
                         pickCard($player,$cardArray);
                     }
+                    echo "<br/>";
+                    displayHand($player);
                 }
-                echo "<br/>";
-                displayHand($players);
             }
             printGameState($allPlayers);
+            displayWinner($allPlayers);
+            
 
+
+            play(35, $allPlayers);
         ?>
     </body>
 </html>
