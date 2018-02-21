@@ -22,7 +22,7 @@
                 );
             $player3 = array(
                 'name' => 'Jeffrey',
-                'imgURL' => './img/user_pics/cockatiel_pic.jpg',
+                'imgURL' => './img/user_pics/joffrey.jpg',
                 'hand' => array(),
                 'points' => 0
                 );
@@ -108,6 +108,7 @@
                 }
                 $cardArray[$symbol][$index] = 0;
                 array_push($player['hand'],array($symbol,$index+1));
+                $player['points'] += $index+1;
             }
                 
             function displayHand($player) {
@@ -121,31 +122,34 @@
                 echo "<h3>";
                 $winner = array('points' => 0);
                 $totalPoints = 0;
-                foreach($allPlayers as $player) {
+                /*$tie = arra;
+                */foreach($allPlayers as $player) {
+                    $tie = $player['points'] == $winner['points'];
                     if($player['points'] > $winner['points'] && $player['points'] < 43){
                         $winner = $player;
                     }
                     $totalPoints += $player['points'];
                 }
                 $totalPoints -= $winner['points'];
-                echo $winner['name']." wins ".$totalPoints."!!</h3>";
+                //if(!$tie)
+                    echo $winner['name']." wins ".$totalPoints."!!</h3>";
+                //else
             }
             
             function play($limit, $allPlayers) {
                 $cardArray = generateDeck();
-                foreach($allPlayers as $player) {
+                foreach($allPlayers as &$player) {
                     while($player['points'] < $limit) {
                         pickCard($player,$cardArray);
                     }
                     echo "<br/>";
                     displayHand($player);
                 }
+                displayWinner($allPlayers);
+                
             }
             printGameState($allPlayers);
-            displayWinner($allPlayers);
             
-
-
             play(35, $allPlayers);
         ?>
     </body>
