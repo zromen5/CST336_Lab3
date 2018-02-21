@@ -1,12 +1,12 @@
 body{
-    background-color:black;
-    color:grey;
-    border: 5px solid red;
-    border-radius: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    text-decoration: underline;
+    background-image: url(green-paper-texture.jpg);
+    /*background-color:#000000;*/
+    background-color: #cccccc;
+    color:#FFE4E1;
+    border: 10px solid red;
+    border-radius: 30px;
+    padding: 5%;
 }
 h1
 {

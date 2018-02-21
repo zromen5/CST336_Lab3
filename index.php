@@ -50,11 +50,11 @@
             function printGameState($allPlayers) {
                 foreach ($allPlayers as $player) {
                     echo "<img src ='" . $player['imgURL'] . "' width = 150px />";
-                    echo "<h2>",$player['name'] . "</h2><br/>";
+                    echo "<h2>",$player['name'] . "</h2>";
                     for ($j = 0; $j < sizeof($player['hand']); $j++) {
                         displayCard($player['hand'][$j][0], $player['hand'][$j][1]);
                     }
-                    echo "<br/>";
+                    //echo "<br/>";
                 }
             }
             
@@ -70,26 +70,26 @@
                 return $cardArray;
             }
             
-            function getHand()
-            {
-                for($i = 0; $i < 5; $i++)
-                {
+            // function getHand()
+            // {
+            //     for($i = 0; $i < 5; $i++)
+            //     {
                     
-                }
-            }
-            function getImgURLForCardIndex($index)
-            {
-                $suitIndex= floor($index/13);
-                switch ($suitIndex) {
-                    case 0:
-                        // code...
-                        break;
+            //     }
+            // }
+            // function getImgURLForCardIndex($index)
+            // {
+            //     $suitIndex= floor($index/13);
+            //     switch ($suitIndex) {
+            //         case 0:
+            //             // code...
+            //             break;
                     
-                    default:
-                        // code...
-                        break;
-                }
-            }
+            //         default:
+            //             // code...
+            //             break;
+            //     }
+            // }
             
             function displayCard ($symbol, $value) {
                     switch ($symbol) {
@@ -126,6 +126,10 @@
             
             function displayWinner($allPlayers){
                 //echo "<h3>";
+                echo "<audio autoplay>
+                    <source src=sound/Win.mp3 type=audio/mpeg>
+                    Your browser does not support the audio element.
+                    </audio>";
                 $winner = array('points' => 0);
                 $totalPoints = 0;
                 /*$tie = arra;
@@ -137,7 +141,6 @@
                     $totalPoints += $player['points'];
                 }
                 $totalPoints -= $winner['points'];
-                //if(!$tie)
                     echo "<h3><i>",$winner['name']." wins ".$totalPoints."!!</i></h3>";
                 //else
             }
