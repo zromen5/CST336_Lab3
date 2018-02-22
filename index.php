@@ -122,18 +122,27 @@
                 echo "<h3>";
                 $winner = array('points' => 0);
                 $totalPoints = 0;
-                /*$tie = arra;
-                */foreach($allPlayers as $player) {
-                    $tie = $player['points'] == $winner['points'];
+                $tmp = array();
+                $tie = false;
+                foreach($allPlayers as $player) {
                     if($player['points'] > $winner['points'] && $player['points'] < 43){
                         $winner = $player;
                     }
                     $totalPoints += $player['points'];
                 }
+                foreach($allPlayers as $player){
+                    if($player['points'] == $winner['points'])
+                        array_push($tmp,$player);
+                }
                 $totalPoints -= $winner['points'];
-                //if(!$tie)
+                if (sizeof($tmp) == 1)
                     echo $winner['name']." wins ".$totalPoints."!!</h3>";
-                //else
+            
+                else {
+                    echo "Draw between: ";
+                    for($i = 0; $i < sizeof($tmp); $i++)
+                        echo $tmp[$i]['name']." ";
+                }
             }
             
             function play($limit, $allPlayers) {
@@ -150,7 +159,7 @@
             }
             printGameState($allPlayers);
             
-            play(35, $allPlayers);
+            play(30, $allPlayers);
         ?>
     </body>
 </html>
