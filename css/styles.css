@@ -48,6 +48,22 @@ h3
     left:50%;
     margin-left:-150px;
 }
+
+.cards, .players {
+    float:left;
+}
+
+.cards {
+    padding-left : 15px;
+}
+
+.card{
+    padding-bottom: 75px;
+}
+
+#result{
+    clear:both;
+}
 /*.points*/
 /*{*/
     /*padding-left: 15%!important;*/

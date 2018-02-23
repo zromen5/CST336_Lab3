@@ -93,13 +93,13 @@
             
             function displayCard ($symbol, $value) {
                     switch ($symbol) {
-                        case 0: echo "<img class = 'img1' src='img/cards/clubs/$value.png' id = clubs".$value." alt='clubs".$value."' title= 'card' width = 85>";
+                        case 0: echo "<img class = 'card' src='img/cards/clubs/$value.png' id = clubs".$value." alt='clubs".$value."' title= 'card' width = 100>";
                                 break;
-                        case 1: echo "<img class = 'img1' src='img/cards/diamonds/$value.png' id = diamonds".$value ." alt='diamonds".$value."' title= 'card' width = 85>";
+                        case 1: echo "<img class = 'card' src='img/cards/diamonds/$value.png' id = diamonds".$value ." alt='diamonds".$value."' title= 'card' width = 100>";
                                 break;
-                        case 2: echo "<img class = 'img1' src='img/cards/hearts/$value.png' id = hearts".$value ." alt='hearts".$value."' title= 'card' width = 85> ";
+                        case 2: echo "<img class = 'card' src='img/cards/hearts/$value.png' id = hearts".$value ." alt='hearts".$value."' title= 'card' width = 100> ";
                                 break;
-                        case 3: echo "<img class = 'img1' src='img/cards/spades/$value.png' id = spades".$value ." alt='spades".$value."' title= 'card' width = 85>";
+                        case 3: echo "<img class = 'card' src='img/cards/spades/$value.png' id = spades".$value ." alt='spades".$value."' title= 'card' width = 100>";
                                 break;
                     }
                 }
@@ -144,7 +144,7 @@
                         array_push($tmp,$player);
                 }
                 $totalPoints -= $winner['points'];
-                echo "<h3><i>";
+                echo "<h3 id='result'><i>";
                 if (sizeof($tmp) == 1)
                     echo $winner['name']." wins ".$totalPoints;
             
@@ -167,16 +167,20 @@
                     displayHand($player);
                     echo $player['points'];
                 }
-                displayWinner($allPlayers);
+                //displayWinner($allPlayers);
                 
             }
             echo "<audio autoplay>
                     <source src=sound/Yay.mp3 type=audio/mpeg>
                     Your browser does not support the audio element.
                     </audio>";
+            echo "<div class='players'>";
             printGameState($allPlayers);
-            
-            play(30, $allPlayers);
+            echo"</div>";
+            echo "<div class='cards'>";
+            play(35, $allPlayers);
+            echo "</div>";
+            displayWinner($allPlayers);
         ?>
     </body>
 </html>
