@@ -1,0 +1,57 @@
+body{
+    text-decoration: underline;
+    background-image: url(green-paper-texture.jpg);
+    /*background-color:#000000;*/
+    background-color: #cccccc;
+    color:#FFE4E1;
+    border: 10px solid black;
+    border-radius: 30px;
+    padding: 5%;
+}
+h1
+{
+    color: white;
+    text-align: center;
+}
+h2
+{
+    color: #F0FFF0;
+    font-size: 1.5em;
+}
+h3
+{
+    font-size: 3em;
+    text-align: center;
+    color: #FFD700;
+}
+
+/*.clubs, .diamonds, .hearts, .spades {*/
+/*    padding-right: 50px;*/
+/*}*/
+
+.output {
+    /*padding-right: 50px;*/
+    float: right;
+    padding-right: 20px;
+    padding-bottom: 1000px
+/*padding: 50px;*/
+    /*float: left;*/
+    /*padding: 100px;*/
+}
+
+.text {
+    position:absolute;
+    width:300px;
+    height:300px;
+    top: 1050px;
+    right:25%;
+    left:50%;
+    margin-left:-150px;
+}
+/*.points*/
+/*{*/
+    /*padding-left: 15%!important;*/
+/*    font-size: 1.5em;*/
+/*    text-align: center;*/
+    /*padding: 0% !important;*/
+/*}*/
