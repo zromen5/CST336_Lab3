@@ -40,7 +40,7 @@ h3
 }
 
 .text {
-    position:absolute;
+    position: relative;
     width:300px;
     height:300px;
     top: 1050px;
@@ -64,6 +64,14 @@ h3
 #result{
     clear:both;
 }
+
+#main {
+        position: relative;
+        padding: 16px;
+        /*margin-top: 30px;*/
+        /*font-size:25px !important;*/
+}
+
 /*.points*/
 /*{*/
     /*padding-left: 15%!important;*/

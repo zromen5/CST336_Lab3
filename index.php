@@ -149,7 +149,7 @@
                     echo $winner['name']." wins ".$totalPoints;
             
                 else {
-                    echo "Draw between: ";
+                    echo "<br/> Draw between: ";
                     for($i = 0; $i < sizeof($tmp) - 1; $i++)
                         echo $tmp[$i]['name']." ";
                     echo "and ".$tmp[sizeof($tmp) - 1]['name'];
@@ -174,13 +174,23 @@
                     <source src=sound/Yay.mp3 type=audio/mpeg>
                     Your browser does not support the audio element.
                     </audio>";
+                    
             echo "<div class='players'>";
             printGameState($allPlayers);
             echo"</div>";
+            
             echo "<div class='cards'>";
             play(35, $allPlayers);
             echo "</div>";
+            
             displayWinner($allPlayers);
         ?>
+        
+        <div id = "main" style = "text-align:center">
+            <form>
+                <input type = "submit" value = "Play again!" style = "font-size: 25px"/>
+            </form>
+        </div>
+        
     </body>
 </html>
