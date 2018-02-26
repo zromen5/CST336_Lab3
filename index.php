@@ -47,6 +47,9 @@
                 $player4
                 );
             
+            // making the user's pictures display in a random order
+            shuffle ($allPlayers);
+            
             function printGameState($allPlayers) {
                 foreach ($allPlayers as $player) {
                     echo "<img src ='" . $player['imgURL'] . "' width = 150px />";
@@ -189,7 +192,7 @@
         <div id = "main" style = "text-align:center">
             <form>
                 <input type = "submit" value = "Play again!" style = "font-size: 25px"/>
-            </form>
+            </for>
         </div>
         
     </body>
