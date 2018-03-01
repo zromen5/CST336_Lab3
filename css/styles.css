@@ -49,8 +49,13 @@ h3
     margin-left:-150px;
 }
 
-.cards, .players {
+.cards, .players, .points {
     float:left;
+    
+}
+
+.cards:after, .players:after, .points:after {
+    clear:both;
 }
 
 .cards {
@@ -59,6 +64,16 @@ h3
 
 .card{
     padding-bottom: 75px;
+}
+
+.points{
+    margin-left: 20px;
+}
+
+.point{
+    
+    font-size: 90px;
+    padding: 51px;
 }
 
 #result{
@@ -71,6 +86,7 @@ h3
         /*margin-top: 30px;*/
         /*font-size:25px !important;*/
 }
+
 
 /*.points*/
 /*{*/

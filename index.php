@@ -10,8 +10,11 @@
         <header>
             <h1 style="font-size:60px;">Silver Jack</h1>
         </header>
+        <audio autoplay>
+                <source src=sound/Yay.mp3 type=audio/mpeg>
+                Your browser does not support the audio element.
+        </audio>
         <?php
-            //echo "<img src =' ./img/cards/clubs/2.png' />";
             
             // initializa a list of players
             $player1 = array(
@@ -47,8 +50,7 @@
                 $player4
                 );
             
-            // making the user's pictures display in a random order
-            shuffle ($allPlayers);
+            
             
             function printGameState($allPlayers) {
                 foreach ($allPlayers as $player) {
@@ -72,27 +74,6 @@
                 }
                 return $cardArray;
             }
-            
-            // function getHand()
-            // {
-            //     for($i = 0; $i < 5; $i++)
-            //     {
-                    
-            //     }
-            // }
-            // function getImgURLForCardIndex($index)
-            // {
-            //     $suitIndex= floor($index/13);
-            //     switch ($suitIndex) {
-            //         case 0:
-            //             // code...
-            //             break;
-                    
-            //         default:
-            //             // code...
-            //             break;
-            //     }
-            // }
             
             function displayCard ($symbol, $value) {
                     switch ($symbol) {
@@ -160,7 +141,13 @@
                     echo "!!</i></h3>";
             }
             
-            function play($limit, $allPlayers) {
+            function displayPoints(&$allPlayers){
+                foreach($allPlayers as $player) {
+                    echo "<div class='point'>".$player['points']."</div>";
+                }
+            }
+            
+            function play($limit, &$allPlayers) {
                 $cardArray = generateDeck();
                 foreach($allPlayers as &$player) {
                     while($player['points'] < $limit) {
@@ -168,22 +155,24 @@
                     }
                     echo "<br/>";
                     displayHand($player);
-                    echo $player['points'];
-                }
-                //displayWinner($allPlayers);
-                
+                }              
             }
-            echo "<audio autoplay>
-                    <source src=sound/Yay.mp3 type=audio/mpeg>
-                    Your browser does not support the audio element.
-                    </audio>";
-                    
+            
+            
+                  
+            // making the user's pictures display in a random order
+            shuffle ($allPlayers);      
+              
             echo "<div class='players'>";
             printGameState($allPlayers);
             echo"</div>";
             
             echo "<div class='cards'>";
             play(35, $allPlayers);
+            echo "</div>";
+            
+            echo "<div class='points'>";
+            displayPoints($allPlayers);
             echo "</div>";
             
             displayWinner($allPlayers);
