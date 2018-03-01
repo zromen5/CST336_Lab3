@@ -11,7 +11,7 @@
             <h1 style="font-size:60px;">Silver Jack</h1>
         </header>
         <audio autoplay>
-                <source src=sound/Yay.mp3 type=audio/mpeg>
+                <source src=sound/happyKids.mp3 type=audio/mpeg>
                 Your browser does not support the audio element.
         </audio>
         <?php

@@ -74,6 +74,8 @@ h3
     
     font-size: 90px;
     padding: 51px;
+    /*padding: inherit;*/
+    padding-bottom: 25%!important;
 }
 
 #result{
