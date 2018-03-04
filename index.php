@@ -108,7 +108,7 @@
             }
             
             function displayWinner($allPlayers){
-                //echo "<h3>";
+                echo "<h3>";
                 // echo "<audio autoplay>
                 //     <source src=sound/Win.mp3 type=audio/mpeg>
                 //     Your browser does not support the audio element.
@@ -136,7 +136,7 @@
                     echo "<br/> Draw between: ";
                     for($i = 0; $i < sizeof($tmp) - 1; $i++)
                         echo $tmp[$i]['name']." ";
-                    echo "and ".$tmp[sizeof($tmp) - 1]['name'];
+                    echo "and ".$tmp[sizeof($tmp) - 1]['name']." ".$totalPoints;
                 }
                     echo "!!</i></h3>";
             }
